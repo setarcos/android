@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
@@ -8,6 +9,35 @@
   <remote  name="github"
            fetch=".."
            review="review.cyanogenmod.org" />
+		   
+<!-- External remotes -->
+
+    <remote  name="aosp"
+           fetch="https://android.googlesource.com" />
+
+    <remote  name="hazouph"
+           fetch="https://github.com/HazouPH/"/>
+
+    <remote  name="trevd"
+           fetch="https://github.com/trevd/"/>
+
+    <remote  name="01org"
+           fetch="https://github.com/01org/"/>
+
+    <remote  name="freexperia"
+           fetch="https://github.com/freexperia/"/>
+
+    <remote  name="oxavelar"
+           fetch="https://github.com/oxavelar/"/>
+
+    <remote  name="android-ia"
+           fetch="https://android-review.01.org/"/>
+
+    <remote  name="android-x86"
+           fetch="http://git.android-x86.org/"/>
+
+    <remote  name="freedesktop"
+           fetch="git://anongit.freedesktop.org/"/>
 
   <remote  name="private"
            fetch="ssh://git@github.com" />
@@ -17,18 +47,29 @@
            sync-c="true"
            sync-j="4" />
 
+<!-- Cyanogenmod repo's CM10.1 -->
+
+<!-- Using modified	   
   <project path="build" name="CyanogenMod/android_build">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
+  -->
 
   <project path="android" name="CyanogenMod/android" />
-
   <project path="abi/cpp" name="CyanogenMod/android_abi_cpp" />
+
+<!-- Using modified
   <project path="bionic" name="CyanogenMod/android_bionic" />
+-->  
+  
   <project path="bootable/diskinstaller" name="CyanogenMod/android_bootable_diskinstaller" />
   <project path="bootable/recovery" name="CyanogenMod/android_bootable_recovery" />
   <project path="cts" name="platform/cts" remote="aosp" revision="refs/tags/android-4.2.2_r1" />
+
+<!-- Using modified  
   <project path="dalvik" name="CyanogenMod/android_dalvik" />
+-->  
+  
   <project path="development" name="CyanogenMod/android_development" />
   <project path="device/common" name="CyanogenMod/android_device_common" />
   <project path="device/generic/armv7-a-neon" name="CyanogenMod/android_device_generic_armv7-a-neon" />
@@ -59,7 +100,11 @@
   <project path="external/bluetooth/bluedroid" name="CyanogenMod/android_external_bluetooth_bluedroid" />
   <project path="external/bouncycastle" name="CyanogenMod/android_external_bouncycastle" />
   <project path="external/bsdiff" name="CyanogenMod/android_external_bsdiff" />
+
+  <!-- Using modified
   <project path="external/busybox" name="CyanogenMod/android_external_busybox" />
+  -->
+  
   <project path="external/bzip2" name="CyanogenMod/android_external_bzip2" />
   <project path="external/checkpolicy" name="CyanogenMod/android_external_checkpolicy" />
   <project path="external/chromium" name="CyanogenMod/android_external_chromium" />
@@ -373,7 +418,11 @@
 
   <project path="sdk" name="CyanogenMod/android_sdk" />
   <project path="system/bluetooth" name="CyanogenMod/android_system_bluetooth" />
+
+<!-- Using modified  
   <project path="system/core" name="CyanogenMod/android_system_core" />
+-->  
+  
   <project path="system/extras" name="CyanogenMod/android_system_extras" />
   <project path="system/media" name="CyanogenMod/android_system_media" />
   <project path="system/netd" name="CyanogenMod/android_system_netd" />
@@ -387,4 +436,81 @@
   <project path="vendor/tmobile/libs/com.tmobile.themes" name="CyanogenMod/android_vendor_tmobile_libs_com.tmobile.themes" />
   <project path="vendor/tmobile/providers/ThemeManager" name="CyanogenMod/android_vendor_tmobile_providers_ThemeManager" />
   <project path="vendor/tmobile/products/themes" name="CyanogenMod/android_vendor_tmobile_products_themes" />
-</manifest>
+
+  <!-- External repo's -->
+
+      <project path="device/motorola/smi"
+      name="android_device_motorola_smi"
+             remote="hazouph"
+             revision="jellybean"/>
+
+    <project path="device/motorola/smi-plus"
+      name="android_device_motorola_smi-plus"
+             remote="hazouph"
+             revision="jellybean"/>
+
+  <project path="build" name="android_build" remote="hazouph" revision="CM10.1x86">			 
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>	 
+			 
+    <project path="external/busybox"
+      name="android_external_busybox"
+             remote="hazouph"
+             revision="CM10.1x86"/>
+
+    <project path="bionic"
+      name="android_bionic"
+             remote="hazouph"
+             revision="CM10.1x86"/>
+
+    <project path="system/core"
+      name="android_system_core"
+             remote="hazouph"
+             revision="CM10.1x86"/>
+
+    <project path="dalvik"
+      name="android_dalvik"
+             remote="hazouph"
+             revision="CM10.1x86"/>
+
+    <project path="external/pciutils"
+      name="android_external_pciutils"
+             remote="trevd"
+             revision="master"/>
+
+    <project path="hardware/intel/wrs_omxil_core"
+      name="omxil_core"
+             remote="01org"
+             revision="master"/>
+
+    <project path="vendor/ti/fmradio"
+      name="vendor_ti_fmradio"
+             remote="freexperia"
+             revision="master"/>
+
+<!-- Line out kernel and toolchain for now (using prebuilt)
+
+<project path="prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6" name="platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6" groups="linux,x86" remote="aosp" revision="refs/tags/android-4.2.2_r1" />
+	 
+    <project path="kernel"
+      name="XT890-Kernel-Gamma"
+             remote="oxavelar"
+             revision="master"/>
+-->			 
+
+    <project path="external/drm"
+      name="fdo/chadversary/drm"
+             remote="android-ia"
+             revision="release/android-4.2.2_r1-ia0"/>
+
+    <project path="vendor/intel"
+      name="platform/vendor/intel"
+             remote="android-x86"
+             revision="jb-x86"/>
+
+    <project path="hardware/intel/libva"
+      name="libva"
+             remote="freedesktop"
+             revision="master"/>
+  
+  </manifest>
