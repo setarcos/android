@@ -1,3 +1,9 @@
+Android manifest for Motorola Razr I (XT890)
+============================================
+See https://github.com/HazouPH/android_device_motorola_smi for more information
+
+See below for Cyanogenmod patch submitting
+
 CyanogenMod
 ===========
 
