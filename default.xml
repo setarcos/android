@@ -11,9 +11,6 @@
 		   
 <!-- External remotes -->
 
-    <remote  name="aosp"
-           fetch="https://android.googlesource.com" />
-
     <remote  name="hazouph"
            fetch="https://github.com/HazouPH/"/>
 
@@ -37,9 +34,6 @@
 
     <remote  name="freedesktop"
            fetch="git://anongit.freedesktop.org/"/>
-
-  <remote  name="private"
-           fetch="ssh://git@github.com" />
 
   <default revision="refs/heads/cm-10.1"
            remote="github"
